@@ -10,6 +10,11 @@ import Footer from './Components/Footer';
 import Counter from './Components/Counter';
 import UseEffect from './Components/DayWise/UseEffect';
 import CounterTwo from './Components/DayWise/CounterTwo';
+import EmptyDependency from './Components/DayWise/EmptyDependency';
+import SingleDependency from './Components/DayWise/SingleDependency';
+import MultipleDependency from './Components/DayWise/MultipleDependency';
+import DynamicRouting from './Components/DayWise/DynamicRouting';
+import UseParams from './Components/DayWise/UseParam';
 
 function App() {
   return (
@@ -23,6 +28,11 @@ function App() {
           <Route path='/counter' element={<Counter/>} />
           <Route path='/useeffect' element={<UseEffect/>} />
           <Route path='/countertwo' element={<CounterTwo/>} />
+          <Route path='/emptyDependency' element={<EmptyDependency/>} />
+          <Route path='/singledependency' element={<SingleDependency/>} />
+          <Route path='/multipledependency' element={<MultipleDependency/>} />
+          <Route path='/dynamic-routing' element={<DynamicRouting/>} />
+          <Route path='/use-params/:age' element={<UseParams/>} />
        </Routes>
        <Footer />
     </div>
