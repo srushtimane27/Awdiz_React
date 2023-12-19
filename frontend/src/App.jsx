@@ -22,6 +22,10 @@ import Practice from './Components/DayWise/Practice';
 import Js from './Components/Js';
 import ChildrenProp from './Components/DayWise/ChildrenProp';
 import RegisterForm from './Components/DayWise/RegisterForm';
+import LoginForm from './Components/DayWise/LoginForm';
+import ChildToParent from './Components/DayWise/ChildToParent';
+import AllProducts from './Components/DayWise/AllProducts';
+
 
 
 function App() {
@@ -58,6 +62,9 @@ function App() {
           <Route path='/js' element={<Js/>}/>
           <Route path='/childprop' element={<ChildrenProp/>}/>
           <Route path='/register-form' element={<RegisterForm/>}/>
+          <Route path='/login-form' element={<LoginForm/>}/>
+          <Route path='/childtoparent' element={<ChildToParent/>}/>
+          <Route path='/all-products' element={<AllProducts/>}/>
        </Routes>
        <Footer />
     </div>
