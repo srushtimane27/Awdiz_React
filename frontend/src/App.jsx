@@ -15,7 +15,7 @@ import SingleDependency from './Components/DayWise/SingleDependency';
 import MultipleDependency from './Components/DayWise/MultipleDependency';
 import DynamicRouting from './Components/DayWise/DynamicRouting';
 import UseParams from './Components/DayWise/UseParam';
-import { Children, useState } from 'react';
+import { Children, useMemo, useState } from 'react';
 import PropsMaps from './Components/DayWise/PropsMaps';
 import MapObject from './Components/DayWise/MapObject';
 import Practice from './Components/DayWise/Practice';
@@ -24,7 +24,9 @@ import ChildrenProp from './Components/DayWise/ChildrenProp';
 import RegisterForm from './Components/DayWise/RegisterForm';
 import LoginForm from './Components/DayWise/LoginForm';
 import ChildToParent from './Components/DayWise/ChildToParent';
-import AllProducts from './Components/DayWise/AllProducts';
+import AllProducts from './Components/DayWise/API_Products/AllProducts';
+import SingleProduct from './Components/DayWise/API_Products/SingleProduct';
+import UseMemo from './Components/DayWise/UseMemo_Hook/UseMemo';
 
 
 
@@ -65,6 +67,8 @@ function App() {
           <Route path='/login-form' element={<LoginForm/>}/>
           <Route path='/childtoparent' element={<ChildToParent/>}/>
           <Route path='/all-products' element={<AllProducts/>}/>
+          <Route path='/single-product/:id' element={<SingleProduct />} />
+          <Route path='/use-memo' element={<UseMemo/>}/>
        </Routes>
        <Footer />
     </div>
