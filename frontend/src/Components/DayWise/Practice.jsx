@@ -1,56 +1,33 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom"
+import React, { useEffect, useState } from 'react'
 
-const Practice = () =>{
+const Practice = () => {
+    const [counter, setCounter] = useState(0);
+    const [counter2,setCounter2] = useState(2);
 
-    const router = useNavigate();
-    const[userData, setUserData] = useState({ name:"", email:"", password: "", confirmpassword: ""})
-    console.log(userData, "userData")
-
-    async function handleSubmit(e){
-        e.preventDefault();
-
-        if(userData.name && userData.email && userData.password && userData.confirmpassword){
-            if(userData.password === userData.confirmpassword){
-                try{
-                    const response = { data: { success: true, message: "REGISTRATION COMPLETE"}}
-
-                    if(response.data.success === true){
-                        alert(response.data.message)
-                        setUserData({name:"", email:"", password:"",confirmpassword:""})
-                        router('/login-form')
-                    }
-                }catch (error){
-                    console.log(error)
-                    alert(error.response.data.message)
-                }
-            } else{
-                alert("Password and confirm password not matched")
-            }
-        } else{
-            alert("All fields are required")
-
-        }
+    function Incre(){
+        setCounter((preValue => preValue + 1))
     }
 
-    function handleChange(e){
-        setUserData({...userData, [e.target.name]: e.target.value});
+    function Decr(){
+        setCounter2((preValue => preValue - 1))
     }
 
-    return(
-        <div>
-            <h1>Register Your Self</h1>
-            <form onSubmit={handleSubmit}>
-                <label>Email:</label><br />
-                <input type="email" required onChange={handleChange} name="email" value={userData.email} /><br />
-                <label>Password:</label><br />
-                <input type="password" required onChange={handleChange} name="password" value={userData.password}/><br />
-                <label>Confirm Password:</label><br />
-                <input type="password" required onChange={handleChange} name="confirmpassword" value={userData.confirmpassword} /><br />
-                <label>Submit</label><br />
-                <input type="submit" required /><br />
-            </form>
-        </div>
-    )
+    useEffect(() => {
+        alert("Helloooo")
+    }, [counter][counter2])
+
+  return (
+    <div>
+        <h1>Use Effect: </h1>
+        <h1>counter: {counter}</h1>
+        <button onClick={Incre}>+</button>
+        <h1>counter: {counter2}</h1>
+        <button onClick={Decr}>-</button>
+    </div>
+  )
 }
+
 export default Practice
+
+
+
