@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from 'react'
 
 const Practice = () => {
-    const [counter, setCounter] = useState(0);
-    const [counter2,setCounter2] = useState(2);
+    const [counter, setCounter] = useState(5);
+    // const [secondcounter, setCounterTwo] = useState(0);
 
-    function Incre(){
-        setCounter((preValue => preValue + 1))
+    function Increment(){
+        setCounter((preState) => preState + 1)
     }
 
-    function Decr(){
-        setCounter2((preValue => preValue - 1))
+    function Decrement(){
+        setCounter((preState) => preState - 1)
     }
 
     useEffect(() => {
-        alert("Helloooo")
-    }, [counter][counter2])
+        // alert("Use Effect....")
+    });
 
   return (
     <div>
-        <h1>Use Effect: </h1>
-        <h1>counter: {counter}</h1>
-        <button onClick={Incre}>+</button>
-        <h1>counter: {counter2}</h1>
-        <button onClick={Decr}>-</button>
+        <h1>Use Effect:</h1>
+        <h1>Counter : {counter}</h1>
+        <button onClick={Increment}>+</button>
+        {/* <h1>Counter : {secondcounter}</h1> */}
+        <button onClick={Decrement}>-</button>
     </div>
   )
 }
