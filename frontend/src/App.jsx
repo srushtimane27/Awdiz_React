@@ -27,6 +27,7 @@ import ChildToParent from './Components/DayWise/ChildToParent';
 import AllProducts from './Components/DayWise/API_Products/AllProducts';
 import SingleProduct from './Components/DayWise/API_Products/SingleProduct';
 import UseMemo from './Components/DayWise/UseMemo_Hook/UseMemo';
+import UseCallBack from './Components/DayWise/UseCallBack_Hook/UseCallBack';
 
 
 
@@ -69,6 +70,7 @@ function App() {
           <Route path='/all-products' element={<AllProducts/>}/>
           <Route path='/single-product/:id' element={<SingleProduct />} />
           <Route path='/use-memo' element={<UseMemo/>}/>
+          <Route path='/use-call-back' element={<UseCallBack/>}/>
        </Routes>
        <Footer />
     </div>
