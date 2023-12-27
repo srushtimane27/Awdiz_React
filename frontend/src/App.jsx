@@ -28,6 +28,7 @@ import AllProducts from './Components/DayWise/API_Products/AllProducts';
 import SingleProduct from './Components/DayWise/API_Products/SingleProduct';
 import UseMemo from './Components/DayWise/UseMemo_Hook/UseMemo';
 import UseCallBack from './Components/DayWise/UseCallBack_Hook/UseCallBack';
+import UseReducer from './Components/DayWise/UseReducer_Hook/UseReducer';
 
 
 
@@ -71,6 +72,7 @@ function App() {
           <Route path='/single-product/:id' element={<SingleProduct />} />
           <Route path='/use-memo' element={<UseMemo/>}/>
           <Route path='/use-call-back' element={<UseCallBack/>}/>
+          <Route path='/use-reducer' element={<UseReducer/>}/>
        </Routes>
        <Footer />
     </div>
