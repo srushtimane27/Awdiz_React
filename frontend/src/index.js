@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
+import AuthContext from './Context/AuthContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -35,7 +36,9 @@ root.render(
     },
   }}
 />
-       <App />
+      <AuthContext>
+      <App />
+      </AuthContext>
     </BrowserRouter>
   </React.StrictMode>
 );
