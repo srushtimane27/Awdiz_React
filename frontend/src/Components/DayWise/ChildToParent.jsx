@@ -1,4 +1,5 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
+import { MyContext } from "../../Context/AuthContext"
 
 function ChildrenComponent({ ChangeValue }) {
 
@@ -9,13 +10,18 @@ function ChildrenComponent({ ChangeValue }) {
 
 function ChildToParent() {  
     const [myValue, setMyValue] = useState('')
+
+    const { state } = useContext(MyContext)
+
+
+
     function ChangeValue(e) {
         setMyValue(e.target.value)
     }
 
     return (
         <div>
-            <h1>Typed value : {myValue}</h1>
+            <h1>Typed value : {myValue} , state = {state.test}</h1>
             <ChildrenComponent ChangeValue={ChangeValue} /> 
         </div>
     )
