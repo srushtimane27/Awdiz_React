@@ -6,6 +6,10 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import toast, { Toaster } from 'react-hot-toast';
 import AuthContext from './Context/AuthContext';
+import { Provider } from 'react-redux';
+import store from './Components/DayWise/Redux/store.js';
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -37,7 +41,9 @@ root.render(
   }}
 />
       <AuthContext>
-      <App />
+      <Provider store={store}>
+          <App />
+        </Provider>
       </AuthContext>
     </BrowserRouter>
   </React.StrictMode>

@@ -1,10 +1,14 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { MyContext } from '../../Context/AuthContext';
 
 const LoginForm = () => {
     const [loginData, setLoginData] = useState({ email: "", password: ""});
     console.log(loginData, "loginData")
+
+    const { state, dispatch } = useContext(MyContext)
+    console.log(state?.user,"state?.user")
 
     const router = useNavigate();
 
@@ -17,9 +21,11 @@ const LoginForm = () => {
 
         if (loginData.email && loginData.password){
             try{
-                const response = { data: { success:true, message: "Login Successful."}}
+                const response = { data: { success:true, message: "Login Successful.",user: { name: "Akshay", email:"akshay@gmail.com"}, token: "ASGDfdgtAhgGagGatffUSGGVggsgHFSF"}}
                 if (response.data.success){
                     toast.success(response.data.message)
+                    dispatch({ type: "LOGIN" , payload: response.data.user})
+                    localStorage.setItem('my-token', JSON.stringify(response.data.token))
                     setLoginData({ email: "", password: ""})
                     router('/')
                 }

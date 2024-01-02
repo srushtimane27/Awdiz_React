@@ -10,7 +10,7 @@ function Home(){
 
     return(
         <div>
-            <h1>Home Page - AuthContext - {state.test}</h1>
+            <h1>Home Page - AuthContext - {state.user?.name}</h1> 
             <button onClick={() => toast.success("Success")}>Success</button>
             <button onClick={() => toast.error("Error")}>Error</button>
         </div>
@@ -18,3 +18,5 @@ function Home(){
 
 }
 export default Home;
+
+//  <h1>Home Page - AuthContext - {state.test}</h1> 
