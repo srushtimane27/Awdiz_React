@@ -2,14 +2,14 @@
 
 import { createContext, useReducer } from "react";
 
-export const MyContext = createContext();
+export const MyContext = createContext(); //Instance 
 
-const InitialStat = { user: null, test: 'Srushti' }
+const InitialState = { user: null, test: 'Srushti'}
 
 const Reducer = (state, action) => {
     switch (action.type) {
         case "LOGIN":
-            return { ...state, user: action.payload }
+            return { ...state, user: action.payload } //data coming from action.payload
         case "LOGOUT":
             return { ...state, user: null }
         default:
@@ -17,14 +17,15 @@ const Reducer = (state, action) => {
     }
 }
 
-// HOC - HIGHER ORDER COMPONENTS
+// HOC - HIGHER ORDER COMPONENTS : This Component accepts as a props any component as a function
+// state , dispatch will be accessible by any component
 
 const AuthContext = ( { children }) => {
 
-    const [state, dispatch] = useReducer(Reducer, InitialStat)
+    const [state, dispatch] = useReducer(Reducer, InitialState)
 
     return(
-        <MyContext.Provider value={{ state, dispatch }}>{children}</MyContext.Provider>
+        <MyContext.Provider value={{ state, dispatch }}>{children}</MyContext.Provider> //children - function component
     )
 }
 
