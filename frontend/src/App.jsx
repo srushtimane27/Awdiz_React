@@ -30,6 +30,7 @@ import UseMemo from './Components/DayWise/UseMemo_Hook/UseMemo';
 import UseCallBack from './Components/DayWise/UseCallBack_Hook/UseCallBack';
 import UseReducer from './Components/DayWise/UseReducer_Hook/UseReducer';
 import ReduxCounter from './Components/DayWise/Redux/ReduxCounter';
+import Todo from './Components/DayWise/UseCallBack_Hook/Todos';
 
 
 
@@ -75,6 +76,8 @@ function App() {
           <Route path='/use-call-back' element={<UseCallBack/>}/>
           <Route path='/use-reducer' element={<UseReducer/>}/>
           <Route path='/redux-counter' element={<ReduxCounter/>}/>
+          <Route path='/pra-redux-counter' element={<praReduxCounter/>}/>
+          <Route path='/todo' element={<Todo/>}/>
        </Routes>
        <Footer />
     </div>
