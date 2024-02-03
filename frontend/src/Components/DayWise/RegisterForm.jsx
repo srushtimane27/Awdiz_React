@@ -1,29 +1,30 @@
 
+import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 const RegisterForm = () => {
     const router = useNavigate();
 
-    const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmpassword: "" })
+    const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" })
     console.log(userData, "userData")
     async function handleSubmit(e) {
         e.preventDefault();
-        if (userData.name && userData.email && userData.password && userData.confirmpassword) {
-            if (userData.password === userData.confirmpassword) {
+        if (userData.name && userData.email && userData.password && userData.confirmPassword) {
+            if (userData.password === userData.confirmPassword) {
                 try {
-                    // const response = await axios.post('http://localhost:8000/register', { userData })
+                    const response = await axios.post('http://localhost:8000/api/v1/auth/register', { userData })
 
-                    const response = { data: { success: true, messsage: "REGISTERATION Compelted." } }
+                    // const response = { data: { success: true, messsage: "REGISTERATION Compelted." } }
 
                     if (response.data.success === true) {
-                        alert(response.data.messsage)
-                        setUserData({ name: "", email: "", password: "", confirmpassword: "" })
+                        alert(response.data.message)
+                        setUserData({ name: "", email: "", password: "", confirmPassword: "" })
                         router('/login-form')
                     }
                 } catch (error) {
                     console.log(error)
-                    alert(error.response.data.messsage)
+                    alert(error.response.data.message)
                 }
             } else {
                 alert("Password and Confirm Password not matched.")
@@ -48,7 +49,7 @@ const RegisterForm = () => {
                 <label>Password</label><br />
                 <input type='password' required onChange={handleChange} name='password' value={userData.password} /><br />
                 <label>Confirm Password</label><br />
-                <input type='password' required onChange={handleChange} name='confirmpassword' value={userData.confirmpassword} /><br />
+                <input type='password' required onChange={handleChange} name='confirmPassword' value={userData.confirmPassword} /><br />
                 <input type='submit' value="Register" />
             </form>
         </div>
