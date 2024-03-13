@@ -8,6 +8,7 @@ const RegisterForm = () => {
 
     const [userData, setUserData] = useState({ name: "", email: "", password: "", confirmPassword: "" })
     console.log(userData, "userData")
+    
     async function handleSubmit(e) {
         e.preventDefault();
         if (userData.name && userData.email && userData.password && userData.confirmPassword) {
