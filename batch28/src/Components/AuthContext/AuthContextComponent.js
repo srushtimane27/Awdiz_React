@@ -1,4 +1,5 @@
-import React, { createContext, useReducer } from 'react'
+import axios from 'axios';
+import React, { createContext, useEffect, useReducer } from 'react'
 
 export const AuthContext = createContext();
 
@@ -15,8 +16,6 @@ function Reducer(state, action) {
 
 const InitialState = {user: null}
 
-
-
 const AuthContextComponent = ({ children }) => {
 
     const [state, dispatch] = useReducer(Reducer, InitialState)
@@ -30,15 +29,23 @@ const AuthContextComponent = ({ children }) => {
 
     async function getUserData(token){
         try {
-            const response = {data: {success: true, userData: {name:'Srushti'}}}
+            // const response = await axios.post('/validate-token', {token: token})
+            const response = {data: {success: true, userData: {name: 'Awdiz', email: 'a@gmail.com'}}}
+            if(response.data.success){
+                LOGIN(response.data.userData)
+            }
             
         } catch (error) {
             console.log(error)
         }
     }
 
-    
-
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem("token"))
+        if(token){
+            getUserData(token)
+        }
+    }, [])
 
     return (
         <AuthContext.Provider value={{state, LOGIN, LOGOUT}}>

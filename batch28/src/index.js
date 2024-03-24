@@ -5,7 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import ProviderCounterContext from './Components/Context/ProviderCounterContext';
-import AuthContextComponent, { AuthContext } from './AuthContext/AuthContextComponent';
+import AuthContextComponent from './Components/AuthContext/AuthContextComponent';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

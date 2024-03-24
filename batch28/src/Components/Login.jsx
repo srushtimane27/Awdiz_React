@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { AuthContext } from './AuthContext/AuthContextComponent';
 
 const Login = () => {
+    const {LOGIN} = useContext(AuthContext);
+
     const router = useNavigate();
 
     const [loginData, setLoginData] = useState({email: "", password: ""})
@@ -16,8 +19,10 @@ const Login = () => {
         event.preventDefault();
         if(loginData.email && loginData.password){
             try{
-                const response = { data : { success : true, message: "Login Successfull"}}
+                const response = { data : { success : true, message: "Login Successfull",token: "abcdefgh", userData: {name: 'Awdiz', email: 'a@gmail.com', id: '100' }}}
                 if(response.data.success === true){
+                    localStorage.setItem("token", JSON.stringify(response.data.token))
+                    LOGIN(response.data.userData)
                     alert(response.data.message)
                     setLoginData({email: "", password: ""})
                     router('/')
