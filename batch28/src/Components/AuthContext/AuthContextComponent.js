@@ -30,7 +30,7 @@ const AuthContextComponent = ({ children }) => {
     async function getUserData(token){
         try {
             // const response = await axios.post('/validate-token', {token: token})
-            const response = {data: {success: true, userData: {name: 'Awdiz', email: 'a@gmail.com'}}}
+            const response = {data: {success: true, userData: {name: 'Srushti', email: 's@gmail.com'}}}
             if(response.data.success){
                 LOGIN(response.data.userData)
             }

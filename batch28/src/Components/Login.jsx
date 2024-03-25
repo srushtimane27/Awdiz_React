@@ -19,7 +19,7 @@ const Login = () => {
         event.preventDefault();
         if(loginData.email && loginData.password){
             try{
-                const response = { data : { success : true, message: "Login Successfull",token: "abcdefgh", userData: {name: 'Awdiz', email: 'a@gmail.com', id: '100' }}}
+                const response = { data : { success : true, message: "Login Successfull",token: "abcdefgh", userData: {name: 'Srushti', email: 's@gmail.com', id: '100' }}}
                 if(response.data.success === true){
                     localStorage.setItem("token", JSON.stringify(response.data.token))
                     LOGIN(response.data.userData)

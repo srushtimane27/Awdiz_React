@@ -15,6 +15,7 @@ import Children from './Components/PropsDrilling/Children';
 import AllProducts from './Components/10-3/AllProducts';
 import FakeStoreApi from './Components/10-3/FakeStoreApi';
 import ContextHome from './Components/Context/ContextHome';
+import Todo from './Components/Todo';
 
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
         <Route path='all-products' element={<AllProducts awdiz={products}/>}/>
         <Route path='fake-store-api' element={<FakeStoreApi/>}/>
         <Route path='context-home' element={<ContextHome/>}/>
+        <Route path='todo' element={<Todo/>}/>
       </Routes>
     </div>
   );
