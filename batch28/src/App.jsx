@@ -17,6 +17,7 @@ import ContextHome from './Components/Context/ContextHome';
 import Todo from './Components/Todo';
 import PageNotFound from './Components/Global/PageNotFound';
 import Navbar from './Components/Global/Navbar';
+import FakeStoreSingleProduct from './Components/10-3/FakeStoreSingleProduct';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='props-drilling' element={<PropsDrilling students={students} counter={counter}/>}/>
         <Route path='all-products' element={<AllProducts awdiz={products}/>}/>
         <Route path='fake-store-api' element={<FakeStoreApi/>}/>
+        <Route path='fake-store-single-product/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='context-home' element={<ContextHome/>}/>
         <Route path='todo' element={<Todo/>}/>
       </Routes>
