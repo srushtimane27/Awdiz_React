@@ -2,7 +2,6 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Components/Home';
-import PageNotFound from './Components/PageNotFound';
 import NoDependency from './Components/useEffect/NoDependency';
 import EmptyDependency from './Components/useEffect/EmptyDependency';
 import Register from './Components/Register';
@@ -16,6 +15,8 @@ import AllProducts from './Components/10-3/AllProducts';
 import FakeStoreApi from './Components/10-3/FakeStoreApi';
 import ContextHome from './Components/Context/ContextHome';
 import Todo from './Components/Todo';
+import PageNotFound from './Components/Global/PageNotFound';
+import Navbar from './Components/Global/Navbar';
 
 
 function App() {
@@ -29,9 +30,10 @@ function App() {
   const [employee, setEmployee] = useState(["Virat", "Rahul", "Sachin"]);
   return (
     <div className="App">
+      <Navbar/>
       <Routes>
         <Route path='prac' element={<Practice employee={employee}/>}/>
-        <Route path='*' element={<PageNotFound />} />
+        <Route path='*' element={<PageNotFound/>}/>
         <Route path='/' element={<Home />} />
         <Route path='no-dependency' element={<NoDependency/>} />
         <Route path='empty-dependency' element={<EmptyDependency/>}/>
