@@ -18,6 +18,11 @@ import Todo from './Components/Todo';
 import PageNotFound from './Components/Global/PageNotFound';
 import Navbar from './Components/Global/Navbar';
 import FakeStoreSingleProduct from './Components/10-3/FakeStoreSingleProduct';
+import CurrencyConverter from './Components/RapidApiProjects/CurrencyConverter';
+import CounterContext from './Components/PracticeFolder/CounterContext';
+import CounterHome from './Components/PracticeFolder/CounterHome';
+import CounterRedux from './Components/CounterRedux';
+import Covid from './Components/RapidApiProjects/Covid';
 
 
 function App() {
@@ -47,6 +52,10 @@ function App() {
         <Route path='fake-store-single-product/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='context-home' element={<ContextHome/>}/>
         <Route path='todo' element={<Todo/>}/>
+        <Route path='currency' element={<CurrencyConverter/>}/>
+        <Route path='counter' element={<CounterHome/>}/>
+        <Route path='counter-redux' element={<CounterRedux/>}/>
+        <Route path='covid' element={<Covid/>}/>
       </Routes>
     </div>
   );

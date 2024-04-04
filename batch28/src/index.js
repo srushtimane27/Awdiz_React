@@ -6,7 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import ProviderCounterContext from './Components/Context/ProviderCounterContext';
 import AuthContextComponent from './Components/AuthContext/AuthContextComponent';
-
+import ProviderCounterContextTwo from './Components/Context/ProviderCounterContext';
+import { Provider } from 'react-redux';
+import store from './Components/Redux/Store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -14,7 +16,9 @@ root.render(
     <BrowserRouter>
       <AuthContextComponent>
       <ProviderCounterContext>
+        <Provider store={store}>
         <App />
+        </Provider>
       </ProviderCounterContext>
       </AuthContextComponent>
     </BrowserRouter>

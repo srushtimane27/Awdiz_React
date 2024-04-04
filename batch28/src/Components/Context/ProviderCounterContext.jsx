@@ -1,9 +1,11 @@
 import React, { createContext, useState } from 'react'
 
- export const MyCounterContext = createContext();
+export const MyCounterContext = createContext();
 
 const ProviderCounterContext = ({children}) => {
+
     const [counter, setCounter] = useState(10)
+    
     function Increment(){
         setCounter(counter + 10)
     }

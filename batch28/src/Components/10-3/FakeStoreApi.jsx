@@ -6,6 +6,9 @@ const FakeStoreApi = () => {
     const [allProducts,setAllProducts] = useState([]);
     // console.log(allProducts, "allProducts")
 
+    const [search, setSearch] = useState("");
+    const [filterProducts, setFilterProducts] = useState([]);
+
     const router = useNavigate();
 
     async function getProducts() {
@@ -16,11 +19,31 @@ const FakeStoreApi = () => {
             // console.log(response, "response from fakestore api")
             if (response?.data.length) {
                 setAllProducts(response.data)
+                setFilterProducts(response.data)
             }
 
         } catch (error) {
             console.log(error)
         }
+    }
+
+    function handleChange(event){
+        console.log(event.target.value);
+        setSearch(event.target.value);
+
+        let userword = event.target.value.toLowerCase();
+
+        const filteredProduts = allProducts.filter((product) => { // 20 -> men
+          // 20 -> 4 -> 4 result show
+          return product.title.toLowerCase().includes(userword);
+        });
+
+        // setAllProducts(filteredProduts)
+    
+        setFilterProducts(filteredProduts); // 20 -> 4
+    
+        console.log(filteredProduts, "filteredProduts");
+
     }
 
     async function redirect(id){
@@ -36,11 +59,17 @@ const FakeStoreApi = () => {
   return (
     <div>
         <h1>FakeStoreApi</h1>
-        {allProducts?.length ? <div style={{ display: 'flex', flexWrap: "wrap", justifyContent: 'space-around' }}>
-                {allProducts.map((productObj) => (
-                    <div onClick={()=>redirect(productObj.id)} style={{ width: "18%", border: "2px solid black", height: "250px" }}>
-                        <img style={{ height: "70%", width: '100%' }} src={productObj.image} />
-                        <h1>{productObj.title}</h1>
+
+        <div>
+            <h2>Search Product: </h2>
+            <input placeholder='Mens...' value={search} onChange={handleChange} />
+        </div>
+
+        {filterProducts?.length ? <div style={{ marginTop: '100px', display: 'flex', flexWrap: "wrap", justifyContent: 'space-around' }}>
+                {filterProducts.map((productObj) => (
+                    <div onClick={()=>redirect(productObj.id)} style={{ width: "25%", border: "2px solid red", height: "400px" }}>
+                        <img style={{ height: "50%", width: '80%' }} src={productObj.image} />
+                        <h2>{productObj.title}</h2>
                     </div>
                 ))}
             </div> : <div>Loading...</div>}

@@ -8,7 +8,7 @@ const Practice = () => {
   console.log(userData, "userData")
 
   function handleChange(event){
-    setUserData({...userData,[event.target.name]: event.target.value})
+    setUserData({...userData, [event.target.name]: event.target.value})
   }
 
   async function handleSubmit(event){
@@ -21,11 +21,12 @@ const Practice = () => {
           if(response.data.success === true){
             alert(response.data.message)
             setUserData({name:"", email:"", password:"",confirmPassword:""})
-            router('/login')
+            router('/home')
           }
           
         } catch (error) {
           console.log(error)
+          alert(error.response.data.message)
         }
 
       }else{
@@ -36,25 +37,20 @@ const Practice = () => {
       alert("ALL FIELDS REQ")
     }
 
-
   }
-
-
-
-
 
   return (
     <div>
       <h1>Registration Form</h1>
       <form onSubmit={handleSubmit}>
         <label>Name:</label><br />
-        <input type="text" required onChange={handleChange} /><br />
+        <input type="text" name='name' required onChange={handleChange} /><br />
         <label>Email:</label><br />
-        <input type="email" required onChange={handleChange} /><br />
+        <input type="email" name='email' required onChange={handleChange} /><br />
         <label>Password:</label><br />
-        <input type="password" required onChange={handleChange} /><br />
+        <input type="password" name='password' required onChange={handleChange} /><br />
         <label>Confirm Password:</label><br />
-        <input type="password" required onChange={handleChange} /><br />
+        <input type="password" name='confirmPassword' required onChange={handleChange} /><br />
         <input type="submit" value="Register" />
       </form>
     </div>
