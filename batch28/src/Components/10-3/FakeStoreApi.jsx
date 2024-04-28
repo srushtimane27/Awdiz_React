@@ -8,6 +8,7 @@ const FakeStoreApi = () => {
 
     const [search, setSearch] = useState("");
     const [filterProducts, setFilterProducts] = useState([]);
+    const [productNotFound, setProductNotFound] = useState(false);
 
     const router = useNavigate();
 
@@ -16,7 +17,7 @@ const FakeStoreApi = () => {
         // alert("Jiii")
         try {
             const response = await axios.get('https://fakestoreapi.com/products');
-            // console.log(response, "response from fakestore api")
+            console.log(response, "response from fakestore api")
             if (response?.data.length) {
                 setAllProducts(response.data)
                 setFilterProducts(response.data)
@@ -44,6 +45,12 @@ const FakeStoreApi = () => {
     
         console.log(filteredProduts, "filteredProduts");
 
+        if (filteredProduts.length === 0) {
+            setProductNotFound(true);
+          } else {
+            setProductNotFound(false);
+          }
+
     }
 
     async function redirect(id){
@@ -65,6 +72,8 @@ const FakeStoreApi = () => {
             <input placeholder='Mens...' value={search} onChange={handleChange} />
         </div>
 
+        {productNotFound && <div style={{ marginTop: '20px', color: 'red' }}>Product not found</div>}
+
         {filterProducts?.length ? <div style={{ marginTop: '100px', display: 'flex', flexWrap: "wrap", justifyContent: 'space-around' }}>
                 {filterProducts.map((productObj) => (
                     <div onClick={()=>redirect(productObj.id)} style={{ width: "25%", border: "2px solid red", height: "400px" }}>
@@ -72,7 +81,7 @@ const FakeStoreApi = () => {
                         <h2>{productObj.title}</h2>
                     </div>
                 ))}
-            </div> : <div>Loading...</div>}
+            </div> : <div>Loading</div>}
     </div>
   )
 }

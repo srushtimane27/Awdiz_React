@@ -29,8 +29,8 @@ const AuthContextComponent = ({ children }) => {
 
     async function getUserData(token){
         try {
-            // const response = await axios.post('/validate-token', {token: token})
-            const response = {data: {success: true, userData: {name: 'Srushti', email: 's@gmail.com'}}}
+            const response = await axios.get("/validate-token", { withCredentials: true, })
+            // const response = {data: {success: true, userData: {name: 'Srushti', email: 's@gmail.com'}}}
             if(response.data.success){
                 LOGIN(response.data.userData)
             }
@@ -41,10 +41,7 @@ const AuthContextComponent = ({ children }) => {
     }
 
     useEffect(() => {
-        const token = JSON.parse(localStorage.getItem("token"))
-        if(token){
-            getUserData(token)
-        }
+        getUserData()
     }, [])
 
     return (
