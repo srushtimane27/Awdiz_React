@@ -24,6 +24,7 @@ import CounterHome from './Components/PracticeFolder/CounterHome';
 import CounterRedux from './Components/CounterRedux';
 import Covid from './Components/RapidApiProjects/Covid';
 import Jokes from './Components/RapidApiProjects/Jokes';
+import AddProduct from './Components/AddProduct';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
         <Route path='counter-redux' element={<CounterRedux/>}/>
         <Route path='covid' element={<Covid/>}/>
         <Route path='jokes' element={<Jokes/>}/>
+        <Route path='add-product' element={<AddProduct/>}/>
       </Routes>
     </div>
   );

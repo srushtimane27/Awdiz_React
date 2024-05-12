@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AuthContext } from './AuthContext/AuthContextComponent';
 import axios from 'axios';
+import api from './AxiosConfig';
 
 const Login = () => {
     const {LOGIN} = useContext(AuthContext);
@@ -20,7 +21,7 @@ const Login = () => {
         event.preventDefault();
         if(userData.email && userData.password){
             try{
-                const response = await axios.post("http://localhost:3001/api/v1/auth/login", {userData}, {withCredentials: true})
+                const response = await api.post("/login", {userData})
                 // const response = { data : { success : true, message: "Login Successfull",token: "abcdefgh", userData: {name: 'Srushti', email: 's@gmail.com', id: '100' }}}
                 if(response.data.success === true){
                     // localStorage.setItem("token", JSON.stringify(response.data.token))

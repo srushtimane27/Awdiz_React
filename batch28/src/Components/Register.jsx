@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import api from './AxiosConfig';
 
 const Register = () => {
     const router = useNavigate();
@@ -19,7 +20,7 @@ const Register = () => {
             if(userData.password === userData.confirmPassword){
                 try{
                     // const response = { data : { success : true, message: "Registration Completed"}}
-                    const response = await axios.post('http://localhost:3001/api/v1/auth/register', { userData })
+                    const response = await api.post('/register', { userData })
 
                     if(response.data.success === true){
                         alert(response.data.message)
