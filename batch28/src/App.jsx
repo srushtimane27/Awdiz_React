@@ -19,12 +19,13 @@ import PageNotFound from './Components/Global/PageNotFound';
 import Navbar from './Components/Global/Navbar';
 import FakeStoreSingleProduct from './Components/10-3/FakeStoreSingleProduct';
 import CurrencyConverter from './Components/RapidApiProjects/CurrencyConverter';
-import CounterContext from './Components/PracticeFolder/CounterContext';
 import CounterHome from './Components/PracticeFolder/CounterHome';
 import CounterRedux from './Components/CounterRedux';
 import Covid from './Components/RapidApiProjects/Covid';
 import Jokes from './Components/RapidApiProjects/Jokes';
-import AddProduct from './Components/AddProduct';
+import AddProduct from './Components/Global/AddProduct';
+import Seller from './Components/Project/Seller';
+import YourProduct from './Components/Project/YourProduct';
 
 
 function App() {
@@ -41,15 +42,10 @@ function App() {
       <Navbar/>
       <Routes>
         <Route path='prac' element={<Practice employee={employee}/>}/>
-        <Route path='*' element={<PageNotFound/>}/>
-        <Route path='/' element={<Home />} />
         <Route path='no-dependency' element={<NoDependency/>} />
         <Route path='empty-dependency' element={<EmptyDependency/>}/>
-        <Route path='register' element={<Register/>}/>
-        <Route path='login' element={<Login/>}/>
         <Route path='use-reducer' element={<UseReducer/>}/>
         <Route path='props-drilling' element={<PropsDrilling students={students} counter={counter}/>}/>
-        <Route path='all-products' element={<AllProducts awdiz={products}/>}/>
         <Route path='fake-store-api' element={<FakeStoreApi/>}/>
         <Route path='fake-store-single-product/:id' element={<FakeStoreSingleProduct/>}/>
         <Route path='context-home' element={<ContextHome/>}/>
@@ -59,7 +55,25 @@ function App() {
         <Route path='counter-redux' element={<CounterRedux/>}/>
         <Route path='covid' element={<Covid/>}/>
         <Route path='jokes' element={<Jokes/>}/>
-        <Route path='add-product' element={<AddProduct/>}/>
+        
+
+
+        <Route path='*' element={<PageNotFound/>}/>
+        <Route path='/' element={<Home />} />
+        
+        <Route path='/seller' element={<Seller/>}/>
+        <Route path='/register' element={<Register/>}/>
+        <Route path='/login' element={<Login/>}/>
+        <Route path='/all-products' element={<AllProducts awdiz={products}/>}/>
+        <Route path='/add-product' element={<AddProduct/>}/>
+        <Route path='/your-product' element={<YourProduct/>}/>
+
+
+
+
+
+
+
       </Routes>
     </div>
   );

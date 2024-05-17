@@ -1,7 +1,9 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "./AuthContext/AuthContextComponent";
-import AuthDirection from "./Redirections/AuthDirection";
+import { AuthContext } from "../AuthContext/AuthContextComponent";
+import AuthDirection from "../Redirections/AuthDirection";
 import axios from "axios";
+import api from "../AxiosConfig";
+import SellerProtected from "../Redirections/SellerProtected";
 
 const AddProduct = () => {
   const [productData, setProductData] = useState({
@@ -22,9 +24,9 @@ const AddProduct = () => {
   const handleSubmit = async (event) => {
     try {
       event.preventDefault();
-      const response = await axios.post("http://localhost:3001/add-product", {
+      const response = await api.post("/api/v1/product/add-product", {
         productData,
-        userId: "663cac008fd9b186385fc26a"
+        userId: state.user._id
       });
       if (response.data.success) {
         alert(response.data.message);
@@ -35,7 +37,7 @@ const AddProduct = () => {
   };
   return (
     //<AuthDirection></AuthDirection>
-    <div>
+    <SellerProtected>
       <h1>Add Product</h1>
       <form onSubmit={handleSubmit}>
         <label>Product Name:</label>
@@ -61,7 +63,7 @@ const AddProduct = () => {
         <input type="submit" />
         <br />
       </form>
-    </div>
+    </SellerProtected>
   );
 };
 
