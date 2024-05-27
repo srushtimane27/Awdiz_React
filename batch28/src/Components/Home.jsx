@@ -15,6 +15,7 @@ const Home = () => {
     const [allProducts, setAllProducts] = useState([]);
     console.log(allProducts, "allProducts")
 
+
     useEffect(()=>{
       async function getProducts(){
           try {
@@ -25,7 +26,6 @@ const Home = () => {
           } catch (error) {
             console.log(error)
           }
-
         }
         getProducts();
     },[])
@@ -47,11 +47,12 @@ const Home = () => {
         } catch (error) {
             console.log(error)
         }
-
     }
+
     
     return (
         <div>
+             <button onClick={()=> router('/cart')}>View Cart</button>
              <h1>Home Page - {state?.user?.name}</h1>
              <h1>AllProducts</h1>
 
@@ -68,8 +69,9 @@ const Home = () => {
             <button>Add to wishlist</button>
             </div>
         ))}
-    </div> : <div>Loading...</div>}
-        </div>
+        </div> : <div>Loading...</div>}
+  
+    </div>
         
     )
 }

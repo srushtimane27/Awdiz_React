@@ -26,6 +26,7 @@ import Jokes from './Components/RapidApiProjects/Jokes';
 import AddProduct from './Components/Global/AddProduct';
 import Seller from './Components/Project/Seller';
 import YourProduct from './Components/Project/YourProduct';
+import Cart from './Components/Cart';
 
 
 function App() {
@@ -67,6 +68,7 @@ function App() {
         <Route path='/all-products' element={<AllProducts awdiz={products}/>}/>
         <Route path='/add-product' element={<AddProduct/>}/>
         <Route path='/your-product' element={<YourProduct/>}/>
+        <Route path='/cart' element={<Cart/>}/>
 
 
 
