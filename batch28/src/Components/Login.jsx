@@ -30,10 +30,12 @@ const Login = () => {
                     alert(response.data.message)
                     setUserData({email: "", password: ""})
                     router('/')
+                } else {
+                    alert(response.data.message)
                 }
             }catch(error){
                 console.log(error)
-                alert(error.response.data.message)
+                alert(error?.response?.data?.message)
             }
           
         }else{
