@@ -38,9 +38,7 @@ const AllProducts = (props) => {
             </div>
         ))}
     </div> : <div>Loading...</div>}
-
-
-      
+     
         <div style={{ display: 'flex', flexWrap: "wrap", justifyContent: 'space-around' }}>
             {awdiz.map((productObj) => (
                 <div style={{ width: "18%", border: "2px solid black", height: "250px" }}>

@@ -20,8 +20,6 @@ const Navbar = () => {
 
   }
 
-
-
   return (
     <div style={{display: 'flex', justifyContent: 'space-around'}}>
       <h2>Navbar</h2>

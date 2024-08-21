@@ -4,6 +4,8 @@ const PropsMaps = ({ hello, myAge, ChangeName, myStudents, flower }) => {
 
     console.log(myAge, ChangeName, myStudents, flower, "hello")
 
+    // const [message, setMessage] = useState("How Are You");
+
     return (
         <div>
             <ul>

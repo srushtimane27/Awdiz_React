@@ -16,7 +16,6 @@ const YourProduct = () => {
           } catch (error) {
             console.log(error)
           }
-
         }
 
         getProducts();

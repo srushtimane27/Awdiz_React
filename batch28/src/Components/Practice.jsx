@@ -1,27 +1,24 @@
-import React, { useState } from 'react'
 
-const Practice = () => {
+import { useRef, useState } from "react";
 
-  const [todo, setTodo] = useState("");
-  console.log(todo, "TODO")
-
-  function handleChange(event){
-    // console.log(event.target.value)
-    setTodo(event.target.value)
+function Practice(){
+  const refElement = useRef("");
+  const [name, setName] = useState("SRUSHTI")
+  function Reset(){
+    setName("")
+    refElement.current.focus()
   }
-
-
-
-
-
-
-  return (
+  function handleInput(){
+    refElement.current.style.color="red";
+    refElement.current.value="HeyHi";
+  }
+  return(
     <div>
-      <h1>ADD TODO</h1>
-      <input onChange={handleChange} type="text" placeholder='Type Here...'/><br />
-      <button >Submit</button>
+       <h1>useRef</h1>
+       <input ref={refElement} type="text" value={name} onChange={(e)=>setName(e.target.value)} />
+       <button onClick={Reset}>Reset</button>
+       <button onClick={handleInput}>Handle Input</button>
     </div>
   )
 }
-
-export default Practice
+export default Practice;

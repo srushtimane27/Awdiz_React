@@ -14,4 +14,4 @@ const BuyerProtected = () => {
     },[state]);
 }
 
-export default BuyerProtected
+export default BuyerProtected;

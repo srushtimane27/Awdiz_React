@@ -27,6 +27,8 @@ import AddProduct from './Components/Global/AddProduct';
 import Seller from './Components/Project/Seller';
 import YourProduct from './Components/Project/YourProduct';
 import Cart from './Components/Cart';
+import Header from './Components/Header';
+
 
 
 function App() {
@@ -38,11 +40,13 @@ function App() {
     {name: "Cap", image: "https://m.media-amazon.com/images/I/51uGECebmZL._AC_UY1100_.jpg"},
   ])
   const [employee, setEmployee] = useState(["Virat", "Rahul", "Sachin"]);
+  const [states, setStates] = useState(["Gujrat", "Maharashra", "Goa", "Kerla"]);
   return (
     <div className="App">
       <Navbar/>
       <Routes>
-        <Route path='prac' element={<Practice employee={employee}/>}/>
+        <Route path='header' element={<Header/>}/>
+        <Route path='prac' element={<Practice states={states}/>}/>
         <Route path='no-dependency' element={<NoDependency/>} />
         <Route path='empty-dependency' element={<EmptyDependency/>}/>
         <Route path='use-reducer' element={<UseReducer/>}/>
